@@ -1,5 +1,21 @@
 # TODO API TEST
 
+## Installation
+
+- Install node dependencies
+```cmd
+    $ yarn install
+```
+- Push sqlite
+```cmd
+    $ npx prisma migrate dev
+```
+- Run Script
+```cmd
+    $ yarn dev
+```
+
+---
 ## Route Lists
 
 ### Auth
