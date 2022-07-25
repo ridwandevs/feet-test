@@ -19,9 +19,9 @@ async function handler(req, res) {
 
         //validate request for title and description
 
-        if (!title || !description) {
+        if (!title) {
             res.status(400).json({
-                error: "Title and description are required"
+                error: "Title are required"
             });
         }
 
