@@ -21,6 +21,16 @@ async function handler(req, res) {
 
             const prisma = new PrismaClient();
 
+            //validate request for email and password
+            if (!email || !password) {
+
+                res.status(200).json({
+                    error: "Email and password are required"
+                });
+
+                return;
+            }
+
             const User = await prisma.user.findUnique({
                 where: {
                     email: email
@@ -28,7 +38,7 @@ async function handler(req, res) {
             });
 
             if (!User) {
-                res.status(400).json({
+                res.status(200).json({
                     error: "User not found"
                 });
             }

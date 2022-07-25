@@ -1,34 +1,130 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TODO API TEST
 
-## Getting Started
+## Route Lists
 
-First, run the development server:
+### Auth
+- `(POST) api/auth/login`
+    
+     | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | email | string |  required |
+    | password | string | required |
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    ### Request 
+    ---
+    ```json
+    {
+        "email":"test@gmail.com",
+        "password": "test123"   
+    }
+    ```
+   
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ` (POST) api/auth/register`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+     | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | email | string |  required |
+    | password | string | required |
+    | name | string | required |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    ### Request
+    ---
+    ```json
+    {
+        "email" : "test@gmail.com",
+        "password" : "test123",
+        "name"""
+    }
+    ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+    ### Response
+    ---
+    ```json
+    {
+            "id": "cl60kg5dy0040fkvk3uw7rug3",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsNjBkOXcwMjAwNDQyNXZrMGxubGxyZ2QiLCJpYXQiOjE2NTg3NDI0ODUsImV4cCI6MTY1ODgyODg4NX0.Dl-Yz7WGgSQPDAiWHbhqXLm7iOOZhyP3HCUP1d9MeGI",
+            "userId": "cl60d9w02004425vk0lnllrgd",
+            "createdAt": "2022-07-25T09:48:05.830Z",
+            "updatedAt": "2022-07-25T09:48:05.830Z"
+    }
+    ```
 
-## Learn More
+---
+### TODO
 
-To learn more about Next.js, take a look at the following resources:
+- `(GET) api\todo\`
+    ### Response 
+    ---
+    ```json
+    {
+        "message": [
+            {
+                "id": "cl60lq73l0050fkvkdqngqkzp",
+                "title": "Documentation",
+                "description": "Write test documentation",
+                "completed": false,
+                "userId": "cl60d9w02004425vk0lnllrgd",
+                "createdAt": "2022-07-25T10:23:54.225Z",
+                "updatedAt": "2022-07-25T10:23:54.225Z"
+            }
+        ]
+    }
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `(POST) api\todo\create`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | title | string |  required |
+    | description | string | optional |
 
-## Deploy on Vercel
+    ### Request
+    ---
+    ```json
+    {
+        "title" : "Documentation",
+        "description": "write test documentation"
+    }
+    ```
+- `(GET) api\todo\view\[todoId]`
+    | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | todoId | string |  required |
+    ### Response
+    ---
+    ```json
+    {
+        
+        "id": "cl60lq73l0050fkvkdqngqkzp",
+        "title": "Documentation",
+        "description": "Write test documentation",
+        "completed": false,
+        "userId": "cl60d9w02004425vk0lnllrgd",
+        "createdAt": "2022-07-25T10:23:54.225Z",
+        "updatedAt": "2022-07-25T10:23:54.225Z"
+    
+    }
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `(PUT) api\todo\update\[todoId]`
+    | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | todoId | string |  required |
+    | title | string |  required |
+    | description | string | optional |
+    | completed | boolean | optional |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ### Request
+    ---
+    ```json
+    {
+        "title" : "Documentation",
+        "description": "Write test documentation and need to finish",
+        "completed": true
+    }
+    ```
+- `(POST) api\todo\delete`
+    | Params | Type | |
+    | ----------- | ----------- | ---- |
+    | todoId | string |  required |
