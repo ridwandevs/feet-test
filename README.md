@@ -70,6 +70,13 @@
 ### TODO
 
 - `(GET) api\todo\`
+
+    ### Headers
+    ---
+    | Params | Data |
+    | ----------- | ----------- |
+    | Authorization | Bearer {$token} |
+
     ### Response 
     ---
     ```json
@@ -89,7 +96,13 @@
     ```
 
 - `(POST) api\todo\create`
-
+    ### Headers
+    ---
+    | Params | Data |
+    | ----------- | ----------- |
+    | Authorization | Bearer {$token} |
+    ### Params     
+    ---
     | Params | Type | |
     | ----------- | ----------- | ---- |
     | title | string |  required |
@@ -104,6 +117,13 @@
     }
     ```
 - `(GET) api\todo\view\[todoId]`
+    ### Headers
+    ---
+    | Params | Data |
+    | ----------- | ----------- |
+    | Authorization | Bearer {$token} |
+    ### Params     
+    ---
     | Params | Type | |
     | ----------- | ----------- | ---- |
     | todoId | string |  required |
@@ -124,6 +144,13 @@
     ```
 
 - `(PUT) api\todo\update\[todoId]`
+    ### Headers
+    ---
+    | Params | Data |
+    | ----------- | ----------- |
+    | Authorization | Bearer {$token} |
+    ### Params     
+    ---
     | Params | Type | |
     | ----------- | ----------- | ---- |
     | todoId | string |  required |
@@ -141,6 +168,13 @@
     }
     ```
 - `(POST) api\todo\delete`
+    ### Headers
+    ---
+    | Params | Data |
+    | ----------- | ----------- |
+    | Authorization | Bearer {$token} |
+    ### Params     
+    ---
     | Params | Type | |
     | ----------- | ----------- | ---- |
     | todoId | string |  required |
